@@ -19,7 +19,7 @@ namespace AspNetCoreFunction
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
-            var client = new MoviesClient("http://localhost:5110", new HttpClient());
+            var client = new MoviesClient("https://app-test-webapi-westeurope-dev-001-e4grazbyh8gae3ff.westeurope-01.azurewebsites.net/", new HttpClient());
             var movies = await client.MoviesAllAsync();
             return new OkObjectResult(movies);
         }
